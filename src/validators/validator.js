@@ -43,4 +43,4 @@ const validateUnclosed = (text) => {
   }
 };
 
-module.exports = { validateNesting, validateUnclosed };
+module.exports = { validateNesting, validateUnclosed, markdownElements };

@@ -1,6 +1,6 @@
 'use strict';
 
-const validator = require('../../validators/mdvalidator');
+const validator = require('../../validators/validator');
 const patterns = require('../../constants/patterns');
 const { separatePreformatted } = require('../../utils/utils');
 
