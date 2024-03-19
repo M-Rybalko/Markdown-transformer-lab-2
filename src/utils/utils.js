@@ -2,12 +2,11 @@
 
 const { dirname } = require('path');
 const fs = require('node:fs');
-const { program } = require('commander');
 
-const readFile = () => {
-  const isExists = fs.existsSync(program.args[0]);
+const readFile = (path) => {
+  const isExists = fs.existsSync(path);
   if (!isExists) throw new Error('file not found');
-  return fs.readFileSync(program.args[0], 'utf-8');
+  return fs.readFileSync(path, 'utf-8');
 };
 
 const writeToFile = (text, out) => {
