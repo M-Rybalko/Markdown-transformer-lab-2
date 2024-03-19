@@ -30,7 +30,7 @@ const getParagraphs = (text) => text.split('\n\n').reduce((acc, cur) =>
 
 const separatePreformatted = (text) => {
   const preformattedText = text.match(
-    /(?:^|\n)```(?:\n)?(.*?)(?:\n)?```(?:\n|$)/gs
+    /(?:^|\n)```\n?(.*?)\n?```(?:\n|$)/gs
   );
   if (!preformattedText) return text;
 
@@ -43,7 +43,7 @@ const separatePreformatted = (text) => {
 
 const setInversed  = (text) => {
   for (const pre of preformatted) {
-    const newPre = `\x1b[7m${pre.replace(/(?:\n)```/g, '')}\x1b[27m`;
+    const newPre = `\x1b[7m${pre.replace(/\n```/g, '')}\x1b[27m`;
     text = text.replace(`PRE{{${preformatted.indexOf(pre)}}}PRE`, newPre);
   }
   return text;
@@ -51,7 +51,7 @@ const setInversed  = (text) => {
 
 const setPreformatted = (text) => {
   for (const pre of preformatted) {
-    const newPre = `<pre>${pre.replace(/(?:\n)```/g, '')}</pre>`;
+    const newPre = `<pre>${pre.replace(/\n```/g, '')}</pre>`;
     text = text.replace(`PRE{{${preformatted.indexOf(pre)}}}PRE`, newPre);
   }
   return text;
