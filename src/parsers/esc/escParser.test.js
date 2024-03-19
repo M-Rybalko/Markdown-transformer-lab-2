@@ -26,7 +26,7 @@ describe('Markdown to ESC Converter', () => {
 
   describe('parseMarkdownToHtml', () => {
     it('should convert Markdown text to ESC with \x1b[1m esc', () => {
-      const text = 'This is _bold_ text.';
+      const text = 'This is **bold** text.';
       const expected = 'This is \x1b[1mbold\x1b[22m text.';
       expect(parseMarkdownToEsc(text)).toEqual(expected);
     });
